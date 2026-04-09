@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+#editor {
+    flex-grow: 1;
+    flex-basis: 0;
+    overflow: hidden;
+}
+
+#toolbar {
+    display: flex;
+    flex-direction: row;
+    gap: .4rem;
+    padding: .4rem;
+    border: 1px solid #666;
+    border-bottom: none;
+}
+
+#toolbar button {
+    display: inline-block;
+    text-decoration: none;
+    padding: 4px 8px 4px 8px;
+    border: 1px solid #aaffaa;
+    background: #aaffaa;
+    color: #000000;
+    font-weight: bold;
+    border-radius: 4px;
+    font-size: inherit;
+    font-family: inherit;
+}
+#toolbar button:hover {
+  border-color: #88dd88;
+}
