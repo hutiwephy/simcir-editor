@@ -345,14 +345,15 @@ const editor = (function(){
             for(var node of mutation.addedNodes){
                 try{
                     if(node.classList.contains("simcir-dialog")){
+                        if(node.querySelector("input.simcir-label-editor") != null){ return; }
+
                         var name = node.querySelector(".simcir-dialog-title").innerText;
+                        
                         node.querySelector(".simcir-dialog-close-button").dispatchEvent(new Event('mousedown'));
 
                         openTab(name);
                     }
-                }catch(err){
-                    console.error(err);
-                }
+                }catch(err){}
             }
         }
     });
