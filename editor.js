@@ -536,14 +536,14 @@ const editor = (function(){
     }
     async function save(){
         sync();
-        ask2save(`${project.name}.json`, JSON.stringify(project.data(), null, 4));
+        ask2save(`${project.data().name}.json`, JSON.stringify(project.data(), null, 4));
     }
     async function open(){
         try{
             var file = await ask4file();
             var tmp = JSON.parse(await file.text());
 
-            if(tmp.engine.name != "simcir"){
+            if(tmp.engine.library != "simcir"){
                 throw "Invalid Engine";
             }
 
@@ -573,7 +573,7 @@ const editor = (function(){
             for(var file of files){
                 var tmp = JSON.parse(await file.text());
 
-                if(tmp.engine.name != "simcir"){
+                if(tmp.engine.library != "simcir"){
                     throw "Invalid Engine";
                 }
 
