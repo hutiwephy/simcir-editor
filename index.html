@@ -6,22 +6,41 @@
 
     <title>Editor</title>
 
-    <link rel="stylesheet" type="text/css" href="./simcirjs/simcir.css">
-    <script type="text/javascript" src="./simcirjs/simcir.js"></script>
+    <link rel="stylesheet" type="text/css" href="simcirjs/simcir.css">
+    <script type="text/javascript" src="simcirjs/simcir.js"></script>
+    <script type="text/javascript" src="simcirjs/simcir-basicset.js"></script>
+    <link rel="stylesheet" type="text/css" href="simcirjs/simcir-basicset.css">
 
-    <script type="text/javascript" src="./simcirjs/simcir-basicset.js"></script>
-    <link rel="stylesheet" type="text/css" href="./simcirjs/simcir-basicset.css" />
 
-    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <script type="text/javascript" src="./editor.js" defer></script>
+    <script type="text/javascript" src="./simcir-extras.js" defer></script>
     <script type="text/javascript" src="./script.js" defer></script>
   </head>
   <body>
     <nav id="toolbar">
-      <button onclick="editor.flush()">New</button>
-      <button onclick="editor.save();">Save</button>
-      <button onclick="editor.open();">Open</button>
-      <button onclick="editor.importDevice();">Import</button>
+      <div class="dropdown">
+        <button>Project</button>
+        <div class="dropdown-content">
+          <button onclick="editor.newProject()">New</button>
+          <button onclick="editor.save();">Save</button>
+          <button onclick="editor.open();">Open</button>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button>Device</button>
+        <div class="dropdown-content">
+          <button onclick="editor.newDevice();">New</button>
+          <button onclick="editor.importDevices();">Import</button>
+        </div>
+      </div>
     </nav>
-    <div id="editor"></div>
+    <div id="header">
+      <span>Devices</span>
+      <div id="tabs"></div>
+    </div>
+    <div id="box">
+      <div id="editor"></div>
+    </div>
   </body>
 </html>

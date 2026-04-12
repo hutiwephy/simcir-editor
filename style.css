@@ -12,25 +12,10 @@ body {
     flex-direction: column;
 }
 
-#editor {
-    flex-grow: 1;
-    flex-basis: 0;
-    overflow: hidden;
-}
-
-#toolbar {
-    display: flex;
-    flex-direction: row;
-    gap: .4rem;
-    padding: .4rem;
-    border: 1px solid #666;
-    border-bottom: none;
-}
-
-#toolbar button {
+button {
     display: inline-block;
     text-decoration: none;
-    padding: 4px 8px 4px 8px;
+    padding: .2rem .4rem;
     border: 1px solid #aaffaa;
     background: #aaffaa;
     color: #000000;
@@ -38,7 +23,118 @@ body {
     border-radius: 4px;
     font-size: inherit;
     font-family: inherit;
+    text-align: left;
 }
-#toolbar button:hover {
-  border-color: #88dd88;
+button:hover:not(:has(>button:hover)) {
+    border-color: #88dd88 !important;
+    background: hsl(from #aaffaa h s calc(l + 2)) !important;
+}
+
+.dropdown {
+    position: relative;
+}
+.dropdown-content {
+    display: none;
+    flex-direction: column;
+    gap: .4rem;
+    padding: .4rem;
+    position: absolute;
+    top: calc(1px + 2rem);
+    left: calc(-1px - .4rem);
+    width: 150px;
+    border: 1px solid #666;
+    background-color: #fff;
+}
+.dropdown.active .dropdown-content{
+    display: flex;
+}
+
+#editor {
+    flex-grow: 1;
+    flex-basis: 0;
+    overflow: hidden;
+}
+
+#toolbar, #tabs {
+    display: flex;
+    flex-direction: row;
+    gap: .4rem;
+    padding: .4rem;
+    border: 1px solid #666;
+}
+
+#header {
+    display: flex;
+    flex-direction: row;
+}
+#header>span {
+    width: 112px;
+    background: #eee;
+    font-weight: bold;
+    text-align: center;
+    line-height: 2.4rem;
+    border-left: 1px solid #666;
+    border-bottom: 1px solid #666;
+}
+
+#tabs {
+    flex-basis: 0;
+    flex-grow: 1;
+    overflow: auto;
+    border-top: none;
+}
+
+#tabs>button{
+    display: flex;
+    flex-direction: row;
+    gap: .4rem;
+    align-items: center;
+}
+
+#tabs>button:not(.active) {
+    background: hsl(from #aaffaa h calc(s - 64) l);
+    border-color: hsl(from #aaffaa h calc(s - 64) l);
+}
+
+#editor .simcir-workspace{
+    border-top: none;
+}
+
+#box {
+    flex-grow: 1;
+    flex-basis: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+}
+
+#panel {
+    width: 350px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #666;
+    border-top: none;
+    border-left: none;
+}
+
+#panel>nav {
+    display: flex;
+    flex-direction: row;
+    gap: .4rem;
+    padding: .4rem;
+    border-bottom: 1px solid #666;
+    align-items: center;
+    user-select: none;
+}
+#panel>nav>:last-child {
+    margin-left: auto;
+}
+#panel>nav>span {
+    font-weight: bold;
+}
+#panel>div {
+    flex-grow: 1;
+    flex-basis: 0;
+    overflow: auto;
 }
