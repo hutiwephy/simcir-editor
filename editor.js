@@ -222,13 +222,29 @@ const editor = (function(){
 
         function importProject(data){
             for(var device of data.devices){
-                project.devices.push(device);
+                if(!hasDevice(device.name)){
+                    project.devices.push(device);
+                }else{
+                    for(var i=0; i<project.devices.length; i++){
+                        if(project.devices[i].name == device.name){
+                            project.devices[i].circuit = device.circuit;
+                        }
+                    }
+                }
             }
 
-            project.devices.push({
-                name: data.name,
-                circuit: data.circuit,
-            });
+            if(!hasDevice(data.name)){
+                project.devices.push({
+                    name: data.name,
+                    circuit: data.circuit,
+                });
+            }else{
+                for(var i=0; i<project.devices.length; i++){
+                    if(project.devices[i].name == data.name){
+                        project.devices[i].circuit = data.circuit;
+                    }
+                }
+            }
         }
 
         function data(value){
