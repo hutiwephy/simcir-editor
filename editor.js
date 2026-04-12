@@ -346,7 +346,7 @@ const editor = (function(){
                 try{
                     if(node.classList.contains("simcir-dialog")){
                         var name = node.querySelector(".simcir-dialog-title").innerText;
-                        //node.querySelector(".simcir-dialog-close-button").dispatchEvent(new Event('mousedown'));
+                        node.querySelector(".simcir-dialog-close-button").dispatchEvent(new Event('mousedown'));
 
                         openTab(name);
                     }
