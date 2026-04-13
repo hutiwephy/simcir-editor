@@ -1,1 +1,1 @@
-editor.newProject();
+editor.restore();

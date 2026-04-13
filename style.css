@@ -109,7 +109,7 @@ button:hover:not(:has(>button:hover)) {
 }
 
 #panel {
-    width: 350px;
+    width: 33%;
     background: #fff;
     display: flex;
     flex-direction: column;
